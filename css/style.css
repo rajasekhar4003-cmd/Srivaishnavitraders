@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #102a56;
+    background: #ffffff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Header */
+header {
+    background: #06295c;
+    padding: 18px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    color: #ffffff;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, #06295c, #0d438c);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    color: #f5b900;
+}
+
+.hero h2 {
+    font-size: 38px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    margin: 8px;
+    background: #f5b900;
+    color: #06295c;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.whatsapp {
+    background: #20b85a;
+    color: white;
+}
+
+/* Sections */
+section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 35px;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #0002;
+    border-top: 5px solid #f5b900;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #06295c;
+}
+
+.about {
+    background: #f4f7fb;
+}
+
+/* Contact */
+#contact {
+    background: #06295c;
+    color: white;
+}
+
+#contact h2 {
+    color: #f5b900;
+}
+
+/* Footer */
+footer {
+    background: #031b3d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 70px 15px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 19px;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+}
+section h2 {
+    font-size: 28px;
+}
+
+/* CONTACT FORM */
+.contact-form {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: #1b1f3a;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
