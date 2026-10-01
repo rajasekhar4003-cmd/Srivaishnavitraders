@@ -38,6 +38,7 @@ enquiryForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const status = document.querySelector("#enquiry-status");
+    const successPanel = document.querySelector("#enquiry-success");
     const submitButton = enquiryForm.querySelector("button[type=\"submit\"]");
 
     if (!enquiryForm.reportValidity()) {
@@ -67,7 +68,12 @@ enquiryForm.addEventListener("submit", async (event) => {
         }
 
         enquiryForm.reset();
-        status.textContent = "Thank you! Your details have been submitted successfully. We will contact you shortly.";
+        enquiryForm.hidden = true;
+        successPanel.hidden = false;
+        requestAnimationFrame(() => {
+            successPanel.classList.add("is-visible");
+            successPanel.focus({ preventScroll: true });
+        });
     } catch {
         status.textContent = "We couldn’t submit your enquiry. Please try again or contact us by phone or WhatsApp.";
         status.classList.add("is-error");
