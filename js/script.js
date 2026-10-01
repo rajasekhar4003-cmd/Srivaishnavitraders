@@ -1,6 +1,7 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const messageForm = document.querySelector("#message-form");
+const enquiryForm = document.querySelector("#enquiry-form");
 
 menuToggle.addEventListener("click", () => {
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -31,6 +32,49 @@ messageForm.addEventListener("submit", (event) => {
     const whatsappUrl = `https://wa.me/917780705611?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+});
+
+enquiryForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const status = document.querySelector("#enquiry-status");
+    const submitButton = enquiryForm.querySelector("button[type=\"submit\"]");
+
+    if (!enquiryForm.reportValidity()) {
+        return;
+    }
+
+    if (enquiryForm.action.endsWith("/YOUR_FORM_ID")) {
+        status.textContent = "Online enquiries are not available yet. Please call or WhatsApp our team.";
+        status.classList.add("is-error");
+        return;
+    }
+
+    status.textContent = "";
+    status.classList.remove("is-error");
+    submitButton.disabled = true;
+    submitButton.firstChild.textContent = "Submitting... ";
+
+    try {
+        const response = await fetch(enquiryForm.action, {
+            method: "POST",
+            body: new FormData(enquiryForm),
+            headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) {
+            throw new Error("The enquiry could not be submitted.");
+        }
+
+        enquiryForm.reset();
+        status.textContent = "Thank you! Your details have been submitted successfully. We will contact you shortly.";
+    } catch {
+        status.textContent = "We couldn’t submit your enquiry. Please try again or contact us by phone or WhatsApp.";
+        status.classList.add("is-error");
+    } finally {
+        submitButton.disabled = false;
+        submitButton.firstChild.textContent = "Submit ";
+    }
 });
 
 document.querySelector("#year").textContent = new Date().getFullYear();

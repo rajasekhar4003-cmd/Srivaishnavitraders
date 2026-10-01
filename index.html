@@ -105,6 +105,46 @@
                     <input id="customer-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Your contact number" required maxlength="20">
                     <button class="button button-accent" type="submit">Continue to WhatsApp <span aria-hidden="true">↗</span></button>
                 </form>
+                <form class="enquiry-form" id="enquiry-form" action="https://formspree.io/f/xppwenar" method="POST">
+                    <div class="enquiry-header">
+                        <div>
+                            <p class="enquiry-kicker">Customer enquiry</p>
+                            <h3>Fill Form Details</h3>
+                        </div>
+                        <p>Share only the details requested. Never include your card number, CVV, PIN, OTP or expiry date.</p>
+                    </div>
+                    <input type="hidden" name="_subject" value="New customer enquiry | Sri Vaishnavi Traders">
+                    <div class="enquiry-trap" aria-hidden="true">
+                        <label for="enquiry-website">Leave this field empty</label>
+                        <input id="enquiry-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div class="enquiry-fields">
+                        <div class="enquiry-field">
+                            <label for="enquiry-name">Customer Name</label>
+                            <input id="enquiry-name" name="Customer Name" type="text" autocomplete="name" maxlength="100" required>
+                        </div>
+                        <div class="enquiry-field">
+                            <label for="enquiry-phone">Contact Number</label>
+                            <input id="enquiry-phone" name="Contact Number" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+() -]{7,20}" maxlength="20" required>
+                        </div>
+                        <div class="enquiry-field">
+                            <label for="enquiry-amount">Required Amount</label>
+                            <input id="enquiry-amount" name="Required Amount" type="number" min="1" step="any" inputmode="decimal" required>
+                        </div>
+                        <div class="enquiry-field">
+                            <label for="enquiry-card-type">Card Type</label>
+                            <select id="enquiry-card-type" name="Card Type" required>
+                                <option value="" disabled selected>Select card type</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Debit Card">Debit Card</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="enquiry-footer">
+                        <p class="enquiry-status" id="enquiry-status" role="status" aria-live="polite"></p>
+                        <button class="button button-accent enquiry-submit" type="submit">Submit <span aria-hidden="true">↗</span></button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
